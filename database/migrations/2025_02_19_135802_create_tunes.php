@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('tunes', function (Blueprint $table) {
+            $table->id();
+            $table->softDeletes();
+            $table->boolean('is_personal')->default(false);
+            $table->foreignId('user_id')->constrained();
+            $table->string('title')->unique();
+            $table->jsonb('alternative_titles')->nullable();
+            $table->foreignId('composer_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('origin_id')->nullable()->constrained()->nullOnDelete();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('tunes');
+    }
+};

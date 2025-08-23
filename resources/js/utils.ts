@@ -1,0 +1,25 @@
+export const getAbcjsParams = (width: number) => ({
+    format: {
+        titlefont: 0,
+        composerfont: 0,
+        subtitlefont: 0,
+        transcriptionfont: 0,
+        textfont: 0,
+        infofont: 0,
+        annotationfont: 0,
+        partsfont: 0,
+        wordsfont: 0,
+    },
+    staffwidth: width < 500 ? 350 : 740,
+    add_classes: true,
+    paddingbottom: 0,
+    paddingleft: 0,
+    paddingright: 0,
+    paddingtop: 0,
+    responsive: 'resize' as const,
+    wrap: {
+        minSpacing: 1.8,
+        maxSpacing: 2.8,
+        preferredMeasuresPerLine: 4,
+    },
+});

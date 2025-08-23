@@ -1,0 +1,190 @@
+services:
+  #################################################
+  # OCTANE:FRANKENPHP
+  #################################################
+  app:
+    image: ghcr.io/y-l-g/thetune:main
+    restart: always
+    volumes:
+      - thetune_storage:/app/storage
+    healthcheck:
+      test: ['CMD', 'php', 'artisan', 'octane:status']
+      start_period: 20s
+    command: sh -c 'php artisan octane:frankenphp --host=0.0.0.0'
+    secrets:
+      - thetune_DB_PASSWORD
+      - thetune_DB_PORT
+      - thetune_DB_DATABASE
+      - thetune_DB_HOST
+      - thetune_DB_USERNAME
+      - thetune_CACHE_PREFIX
+      - thetune_REDIS_PASSWORD
+      - thetune_APP_KEY
+      - thetune_MEILISEARCH_KEY
+      - thetune_MEILISEARCH_HOST
+      - thetune_GOOGLE_CLIENT_ID
+      - thetune_GOOGLE_CLIENT_SECRET
+      - thetune_GOOGLE_REDIRECT_URL
+      - thetune_FTP_HOST
+      - thetune_FTP_USERNAME
+      - thetune_FTP_PASSWORD
+      - thetune_MAIL_USERNAME
+      - thetune_MAIL_PASSWORD
+      - thetune_MAIL_HOST
+      - thetune_MAIL_PORT
+      - thetune_MAIL_FROM_ADDRESS
+      - thetune_STRIPE_KEY
+      - thetune_STRIPE_SECRET
+      - thetune_STRIPE_WEBHOOK_SECRET
+      - thetune_IPINFO_TOKEN
+      - thetune_CASHIER_STRIPE_DEFAULT_PRICE_ID
+    entrypoint: start-container
+    networks:
+      - thetune
+  #################################################
+  # CRON
+  #################################################
+  cron:
+    image: ghcr.io/y-l-g/thetune:main
+    user: root
+    restart: always
+    volumes:
+      - thetune_storage:/app/storage
+    command: ['cron', '-f']
+    healthcheck:
+      test: ['CMD', 'pgrep', '-f', 'cron']
+      start_period: 20s
+    secrets:
+      - thetune_DB_PASSWORD
+      - thetune_DB_PORT
+      - thetune_DB_DATABASE
+      - thetune_DB_HOST
+      - thetune_DB_USERNAME
+      - thetune_CACHE_PREFIX
+      - thetune_REDIS_PASSWORD
+      - thetune_APP_KEY
+      - thetune_MEILISEARCH_KEY
+      - thetune_MEILISEARCH_HOST
+      - thetune_GOOGLE_CLIENT_ID
+      - thetune_GOOGLE_CLIENT_SECRET
+      - thetune_GOOGLE_REDIRECT_URL
+      - thetune_FTP_HOST
+      - thetune_FTP_USERNAME
+      - thetune_FTP_PASSWORD
+      - thetune_MAIL_USERNAME
+      - thetune_MAIL_PASSWORD
+      - thetune_MAIL_HOST
+      - thetune_MAIL_PORT
+      - thetune_MAIL_FROM_ADDRESS
+      - thetune_STRIPE_KEY
+      - thetune_STRIPE_SECRET
+      - thetune_STRIPE_WEBHOOK_SECRET
+      - thetune_IPINFO_TOKEN
+      - thetune_CASHIER_STRIPE_DEFAULT_PRICE_ID
+    entrypoint: start-container
+    networks:
+      - thetune
+  ##################################################
+  # HORIZON
+  ##################################################
+  horizon:
+    image: ghcr.io/y-l-g/thetune:main
+    restart: always
+    volumes:
+      - thetune_storage:/app/storage
+    command: ['php', 'artisan', 'horizon']
+    healthcheck:
+      test: ['CMD', 'php', 'artisan', 'horizon:status']
+    secrets:
+      - thetune_DB_PASSWORD
+      - thetune_DB_PORT
+      - thetune_DB_DATABASE
+      - thetune_DB_HOST
+      - thetune_DB_USERNAME
+      - thetune_CACHE_PREFIX
+      - thetune_REDIS_PASSWORD
+      - thetune_APP_KEY
+      - thetune_MEILISEARCH_KEY
+      - thetune_MEILISEARCH_HOST
+      - thetune_GOOGLE_CLIENT_ID
+      - thetune_GOOGLE_CLIENT_SECRET
+      - thetune_GOOGLE_REDIRECT_URL
+      - thetune_FTP_HOST
+      - thetune_FTP_USERNAME
+      - thetune_FTP_PASSWORD
+      - thetune_MAIL_USERNAME
+      - thetune_MAIL_PASSWORD
+      - thetune_MAIL_HOST
+      - thetune_MAIL_PORT
+      - thetune_MAIL_FROM_ADDRESS
+      - thetune_STRIPE_KEY
+      - thetune_STRIPE_SECRET
+      - thetune_STRIPE_WEBHOOK_SECRET
+      - thetune_IPINFO_TOKEN
+      - thetune_CASHIER_STRIPE_DEFAULT_PRICE_ID
+    entrypoint: start-container
+    networks:
+      - thetune
+  # #################################################
+  # VOLUMES
+  # #################################################
+volumes:
+  ##################################################
+  thetune_storage:
+  ##################################################
+secrets:
+  thetune_DB_PASSWORD:
+    external: true
+  thetune_DB_PORT:
+    external: true
+  thetune_DB_DATABASE:
+    external: true
+  thetune_DB_HOST:
+    external: true
+  thetune_DB_USERNAME:
+    external: true
+  thetune_CACHE_PREFIX:
+    external: true
+  thetune_REDIS_PASSWORD:
+    external: true
+  thetune_APP_KEY:
+    external: true
+  thetune_MEILISEARCH_KEY:
+    external: true
+  thetune_MEILISEARCH_HOST:
+    external: true
+  thetune_GOOGLE_CLIENT_ID:
+    external: true
+  thetune_GOOGLE_CLIENT_SECRET:
+    external: true
+  thetune_GOOGLE_REDIRECT_URL:
+    external: true
+  thetune_FTP_HOST:
+    external: true
+  thetune_FTP_USERNAME:
+    external: true
+  thetune_FTP_PASSWORD:
+    external: true
+  thetune_MAIL_FROM_ADDRESS:
+    external: true
+  thetune_MAIL_USERNAME:
+    external: true
+  thetune_MAIL_PASSWORD:
+    external: true
+  thetune_MAIL_HOST:
+    external: true
+  thetune_MAIL_PORT:
+    external: true
+  thetune_STRIPE_KEY:
+    external: true
+  thetune_STRIPE_SECRET:
+    external: true
+  thetune_STRIPE_WEBHOOK_SECRET:
+    external: true
+  thetune_IPINFO_TOKEN:
+    external: true
+  thetune_CASHIER_STRIPE_DEFAULT_PRICE_ID:
+    external: true
+networks:
+  thetune:
+    external: true
