@@ -3,7 +3,7 @@ services:
   # OCTANE:FRANKENPHP
   #################################################
   app:
-    image: ghcr.io/y-l-g/thetune:main
+    image: ghcr.io/y-l-g/notenn:main
     restart: always
     volumes:
       - thetune_storage:/app/storage
@@ -45,7 +45,7 @@ services:
   # CRON
   #################################################
   cron:
-    image: ghcr.io/y-l-g/thetune:main
+    image: ghcr.io/y-l-g/notenn:main
     user: root
     restart: always
     volumes:
@@ -88,7 +88,7 @@ services:
   # HORIZON
   ##################################################
   horizon:
-    image: ghcr.io/y-l-g/thetune:main
+    image: ghcr.io/y-l-g/notenn:main
     restart: always
     volumes:
       - thetune_storage:/app/storage
