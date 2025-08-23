@@ -17,7 +17,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-    <BetaBanner />
+    <!-- <BetaBanner /> -->
     <AppShell variant="sidebar">
         <AppSidebar />
         <AppContent variant="sidebar"
