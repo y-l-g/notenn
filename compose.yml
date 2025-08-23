@@ -48,8 +48,6 @@ services:
     image: ghcr.io/y-l-g/notenn:main
     user: root
     restart: always
-    volumes:
-      - thetune_storage:/app/storage
     command: ['cron', '-f']
     healthcheck:
       test: ['CMD', 'pgrep', '-f', 'cron']
@@ -90,8 +88,6 @@ services:
   horizon:
     image: ghcr.io/y-l-g/notenn:main
     restart: always
-    volumes:
-      - thetune_storage:/app/storage
     command: ['php', 'artisan', 'horizon']
     healthcheck:
       test: ['CMD', 'php', 'artisan', 'horizon:status']
@@ -125,13 +121,6 @@ services:
     entrypoint: start-container
     networks:
       - thetune
-  # #################################################
-  # VOLUMES
-  # #################################################
-volumes:
-  ##################################################
-  thetune_storage:
-  ##################################################
 secrets:
   thetune_DB_PASSWORD:
     external: true
