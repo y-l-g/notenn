@@ -52,10 +52,10 @@ const breadcrumbs: BreadcrumbItem[] = [
             <h2 class="text-3xl font-bold text-center mb-2">{{ t('Plans') }}</h2>
             <!-- <p class="text-center text-muted-foreground mb-2">{{ t('Unlock all the features') }}</p> -->
             <p class="text-center text-muted-foreground mb-2">
-                {{ t('50% discount for the first 100 paying users with code ') }}<strong>NOTENN1</strong>
+                {{ t('50% Discount ') }}<strong>NOTENN1</strong>
             </p>
             <p class="text-center text-muted-foreground mb-2">
-                {{ t('100% Free ') }}<strong>FREENOTENN</strong>
+                {{ t('100% Discount ') }}<strong>FREENOTENN</strong>
             </p>
             <p class="text-center text-muted-foreground mb-8">
                 {{ t('Remaining coupons: ') }}<strong>{{ remainingCoupons }}</strong>
@@ -92,7 +92,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 
                     <p class="text-4xl font-bold mb-2">
                         {{ formattedPrice }}<span class="text-sm font-normal text-muted-foreground">{{ t('/One Time')
-                        }}</span></p>
+                            }}</span></p>
                     <ul class="space-y-3 mb-8 mt-6">
                         <li v-for="feature in features" :key="feature.name" class="flex items-start">
                             <component :is="feature.pro ? Check : X" class="size-[20px] mr-2 flex-shrink-0"

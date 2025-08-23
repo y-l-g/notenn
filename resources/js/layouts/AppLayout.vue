@@ -4,7 +4,6 @@ import AppContent from '@/components/laravel-starter-kit/AppContent.vue';
 import AppShell from '@/components/laravel-starter-kit/AppShell.vue';
 import AppSidebarHeader from '@/components/app/laravel-starter-kit-customized/AppSidebarHeader.vue';
 import type { BreadcrumbItemType } from '@/types';
-import BetaBanner from '@/components/app/BetaBanner.vue';
 
 interface Props {
     breadcrumbs?: BreadcrumbItemType[];
