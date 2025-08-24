@@ -82,7 +82,8 @@ class TuneFromTheSessionSeeder extends Seeder
                 'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
-                'source_id' => 1,
+                'source' => 'thesession',
+                'source_url' => "https://thesession.org/tunes/{$entry['tune_id']}#setting{$entry['setting_id']}",
             ]);
         }
         Schema::enableForeignKeyConstraints();

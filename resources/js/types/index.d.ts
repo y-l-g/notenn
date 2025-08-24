@@ -80,6 +80,8 @@ export interface Arrangement {
     user: User;
     created_at: string;
     is_best_arrangement: boolean;
+    source?: string;
+    source_url?: string;
 }
 
 export interface ArrangementFromMeilisearch extends Arrangement {

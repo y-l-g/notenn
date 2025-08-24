@@ -35,7 +35,6 @@ class Tune extends Model
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'alternative_titles' => $this->alternative_titles,
             'created_at' => $this->created_at,
         ];
     }

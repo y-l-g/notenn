@@ -54,7 +54,7 @@ class CalculateSimilarities implements ShouldQueue
             $query = Tune::search(implode(' ', $searchTerms));
             $query->whereNotIn('id', [$tune->id]);
             $query->options([
-                'attributesToSearchOn' => ['title', 'alternative_titles'],
+                'attributesToSearchOn' => ['title'],
                 'limit' => 5, // Limite les résultats par recherche
             ]);
 

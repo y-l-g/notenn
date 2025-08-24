@@ -146,7 +146,7 @@ return [
         'key' => env('MEILISEARCH_KEY'),
         'index-settings' => [
             Tune::class => [
-                'filterableAttributes' => ['id', 'title', 'alternative_titles'],
+                'filterableAttributes' => ['id', 'title',],
             ],
             Composer::class => [
                 'filterableAttributes' => ['id', 'name'],

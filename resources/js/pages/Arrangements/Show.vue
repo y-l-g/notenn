@@ -5,7 +5,7 @@ import { useAbcNotation } from '@/composables/useAbcNotation';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { Arrangement, BreadcrumbItem, Comment, PaginatedResponse, Tunebook } from '@/types';
 import { Head, Link, router, usePage } from '@inertiajs/vue3';
-import { Heart } from 'lucide-vue-next';
+import { Heart, Link as LinkIcon } from 'lucide-vue-next';
 import { useComments } from '@/composables/useComments';
 import { useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
@@ -93,6 +93,11 @@ onMounted(() => {
         <Render :abcString="useAbcNotation(arrangement).abcNotationWithoutWordsAndNotesAndTranscription" setTune />
         <div class="flex justify-between items-center border-b border-t py-1">
             <TunePlayer :tune-obj="visualObj" :is-current="true" />
+            <a target="_blank" rel="noopener noreferrer"
+                class="flex items-center gap-1 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">
+                <LinkIcon class="size-4" />
+                <span>{{ t('Source') }}</span>
+            </a>
             <ArrangementActions v-if="pageData.props.auth.user" :arrangement="arrangement" :tunebooks="tunebooks"
                 :user_arrangement_for_this_tune />
             <Link v-if="pageData.props.auth.user" prefetch

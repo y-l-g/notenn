@@ -41,7 +41,8 @@ return new class extends Migration {
                 'Db',
                 'Gb',
             ])->nullable();
-            $table->foreignId('source_id')->nullable()->constrained();
+            $table->string('source')->nullable();
+            $table->jsonb('source_url')->nullable();
             $table->jsonb('words_lines')->nullable();
             $table->foreignId('rhythm_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();

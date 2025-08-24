@@ -44,7 +44,6 @@ class Arrangement extends Model implements Likeable, Taggable
         return [
             'id' => $this->id,
             'title' => $this->tune->title,
-            'alternative_titles' => $this->tune->alternative_titles,
             'similar_arrangements_with_different_tune' => $this->similar_arrangements_with_different_tune,
             'composer_name' => $this->tune->composer?->name,
             'origin_name_fr' => $this->tune->origin?->name_fr,
