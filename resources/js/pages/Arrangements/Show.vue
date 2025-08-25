@@ -5,7 +5,7 @@ import { useAbcNotation } from '@/composables/useAbcNotation';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { Arrangement, BreadcrumbItem, Comment, PaginatedResponse, Tunebook } from '@/types';
 import { Head, Link, router, usePage } from '@inertiajs/vue3';
-import { Heart, Link as LinkIcon } from 'lucide-vue-next';
+import { Heart, } from 'lucide-vue-next';
 import { useComments } from '@/composables/useComments';
 import { useWindowSize } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
@@ -93,11 +93,6 @@ onMounted(() => {
         <Render :abcString="useAbcNotation(arrangement).abcNotationWithoutWordsAndNotesAndTranscription" setTune />
         <div class="flex justify-between items-center border-b border-t py-1">
             <TunePlayer :tune-obj="visualObj" :is-current="true" />
-            <a target="_blank" rel="noopener noreferrer"
-                class="flex items-center gap-1 text-sm text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200">
-                <LinkIcon class="size-4" />
-                <span>{{ t('Source') }}</span>
-            </a>
             <ArrangementActions v-if="pageData.props.auth.user" :arrangement="arrangement" :tunebooks="tunebooks"
                 :user_arrangement_for_this_tune />
             <Link v-if="pageData.props.auth.user" prefetch
@@ -114,9 +109,16 @@ onMounted(() => {
             </p>
         </div>
         <div class="flex flex-wrap gap-2">
+            <a v-if="arrangement.source === 'thesession' && arrangement.source_url" :href="arrangement.source_url"
+                target="_blank" rel="noopener noreferrer">
+                <Badge variant="outline" class="cursor-pointer hover:bg-accent">
+                    Source: The Session
+                </Badge>
+            </a>
             <Badge v-for="tag in arrangement.tags" :key="tag.id" variant="secondary">
                 {{ tag.name }}
             </Badge>
+
         </div>
         <AccordionCustom :arrangement="arrangement" type="ABC Notation" />
         <div v-if="other_arrangements.length > 0" v-show="width < usePlayerStore().breakPointSidebar">

@@ -37,54 +37,29 @@ function extractStrings($filePath)
     $content = file_get_contents($filePath);
     $strings = [];
 
-    preg_match_all("/t\('([^']*)'\)/", $content, $matches1);
-    if (!empty($matches1[1])) {
-        $strings = array_merge($strings, $matches1[1]);
+    preg_match_all("/\\bt\\((['\"])(.*?)\\1[^)]*\\)/", $content, $matches1);
+    if (!empty($matches1[2])) {
+        $strings = array_merge($strings, $matches1[2]);
     }
 
-    preg_match_all('/t\("([^"]*)"\)/', $content, $matches2);
-    if (!empty($matches2[1])) {
-        $strings = array_merge($strings, $matches2[1]);
+    preg_match_all('/(?:const|let|var)\s+textToTranslate\s*=\s*(["\'])(.*?)\1/', $content, $matches3);
+    if (!empty($matches3[2])) {
+        $strings = array_merge($strings, $matches3[2]);
     }
 
-    preg_match_all('/(?:const|let|var)\s+textToTranslate\s*=\s*"([^"]*)"/', $content, $matches3);
-    if (!empty($matches3[1])) {
-        $strings = array_merge($strings, $matches3[1]);
+    preg_match_all('/textToTranslate\s*=\s*(["\'])(.*?)\1/', $content, $matches5);
+    if (!empty($matches5[2])) {
+        $strings = array_merge($strings, $matches5[2]);
     }
 
-    preg_match_all("/(?:const|let|var)\\s+textToTranslate\\s*=\\s*'([^']*)'/", $content, $matches4);
-    if (!empty($matches4[1])) {
-        $strings = array_merge($strings, $matches4[1]);
+    preg_match_all("/\\b\\\$t\\((['\"])(.*?)\\1[^)]*\\)/", $content, $matches7);
+    if (!empty($matches7[2])) {
+        $strings = array_merge($strings, $matches7[2]);
     }
 
-    preg_match_all('/textToTranslate\s*=\s*"([^"]*)"/', $content, $matches5);
-    if (!empty($matches5[1])) {
-        $strings = array_merge($strings, $matches5[1]);
-    }
-
-    preg_match_all("/textToTranslate\\s*=\\s*'([^']*)'/", $content, $matches6);
-    if (!empty($matches6[1])) {
-        $strings = array_merge($strings, $matches6[1]);
-    }
-
-    preg_match_all('/\$t\("([^"]*)"\)/', $content, $matches7);
-    if (!empty($matches7[1])) {
-        $strings = array_merge($strings, $matches7[1]);
-    }
-
-    preg_match_all("/\\\$t\\('([^']*)'\\)/", $content, $matches8);
-    if (!empty($matches8[1])) {
-        $strings = array_merge($strings, $matches8[1]);
-    }
-
-    preg_match_all('/__\("([^"]*)"\)/', $content, $matches9);
-    if (!empty($matches9[1])) {
-        $strings = array_merge($strings, $matches9[1]);
-    }
-
-    preg_match_all("/__\\('([^']*)'\\)/", $content, $matches10);
-    if (!empty($matches10[1])) {
-        $strings = array_merge($strings, $matches10[1]);
+    preg_match_all("/\\b__\\((['\"])(.*?)\\1[^)]*\\)/", $content, $matches9);
+    if (!empty($matches9[2])) {
+        $strings = array_merge($strings, $matches9[2]);
     }
 
     $strings = array_filter(array_unique($strings), function ($str) {

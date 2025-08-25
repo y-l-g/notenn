@@ -89,10 +89,12 @@ const breadcrumbs: BreadcrumbItem[] = [
         <p class="font-medium">{{ t('Copyright') }}</p>
         <p>{{ t('If you find content that belongs to you against your wish, please contact us') }}</p>
 
-        <!-- <HeadingSmall>{{ t('Liability') }}</HeadingSmall>
-        <p>{{ t('YouTube videos are hosted by Google: we do not control their availability') }}</p> -->
+        <p class="font-medium">{{ t('Licence') }}</p>
+        <p>{{ t('Most of the initial database comes from') }} <a href="https://thesession.org/">thesession.org</a>.</p>
+        <p><a href="https://github.com/adactio/TheSession-data">{{ t('Link of the original database') }}</a></p>
+        <p><a href="https://github.com/y-l-g/notenn-data">{{ t('Link of the database used on this site') }}</a></p>
 
-        <p><em>{{ t('Last updated:') }} {{ (new Date(Date.UTC(2025, 6, 11))).toLocaleDateString(useI18n().locale.value)
-                }}</em></p>
+        <p><em>{{ t('Last updated:') }} {{ (new Date(Date.UTC(2025, 8, 25))).toLocaleDateString(useI18n().locale.value)
+        }}</em></p>
     </AppLayout>
 </template>
