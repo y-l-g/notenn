@@ -42,7 +42,7 @@ return new class extends Migration {
                 'Gb',
             ])->nullable();
             $table->string('source')->nullable();
-            $table->jsonb('source_url')->nullable();
+            $table->string('source_url')->nullable();
             $table->jsonb('words_lines')->nullable();
             $table->foreignId('rhythm_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
