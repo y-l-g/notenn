@@ -1,7 +1,7 @@
 import { usePlayerStore } from '@/Stores/player';
 import { Ref, ref } from 'vue';
 
-type DrumBeatKey = '1/4' | '3/4' | '4/4' | '5/4' | '6/4' | '7/4' | '5/8' | '6/8' | '7/8' | '9/8' | '10/8' | '11/8' | '12/8';
+type DrumBeatKey = '1/4' | '2/4' | '3/4' | '4/4' | '5/4' | '6/4' | '7/4' | '5/8' | '6/8' | '7/8' | '9/8' | '10/8' | '11/8' | '12/8';
 
 interface MetronomeComposable {
     metronome: Ref<boolean>;
@@ -12,6 +12,7 @@ interface MetronomeComposable {
 export const useMetronome = (): MetronomeComposable => {
     const drumBeats: Record<DrumBeatKey, string> = {
         '1/4': 'd 76 10',
+        '2/4': 'dd 76 77 10 10',
         '3/4': 'ddd 76 77 77 10 10 10',
         '4/4': 'dddd 76 77 77 77 10 10 10 10',
         '5/4': 'ddddd 76 77 77 77 77 10 10 10 10 10',

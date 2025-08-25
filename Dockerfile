@@ -62,7 +62,7 @@ RUN set -eux; \
     gettext \
     procps \
     cron \
-    # nano \
+    nano \
     mariadb-client \
     && apt-get clean
 
