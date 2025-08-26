@@ -123,4 +123,4 @@ if (!empty($newTranslations)) {
     }
 }
 
-echo "\n🎉 Extraction terminée !\n";
+echo "\n🎉 Extraction terminée \n";
