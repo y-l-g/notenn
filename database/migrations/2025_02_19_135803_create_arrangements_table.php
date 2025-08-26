@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->foreignId('user_id')->constrained()->restrictOnDelete();
             $table->jsonb('tune_body_lines')->nullable();
             $table->foreignId('meter_id')->nullable()->constrained()->nullOnDelete();
-            $table->string('tempo')->nullable();
+            $table->string('tempo')->default('120');
             $table->string('parts')->nullable();
             $table->string('transcription')->nullable();
             $table->jsonb('notes_lines')->nullable();

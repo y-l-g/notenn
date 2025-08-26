@@ -66,8 +66,8 @@ watch(selectedMeter, (newValue) => {
                 :width="inputWidth" clearable />
         </FormField>
         <FormField description="Q" :error="form.errors.tempo">
-            <Input type="number" v-model="form.tempo" :placeholder="t('Tempo') + ' ' + t('(optional)')"
-                :width="inputWidth" clearable />
+            <Input type="number" v-model="form.tempo" :placeholder="t('Tempo') + ' ' + t('(required)')"
+                :width="inputWidth" clearable required />
         </FormField>
 
         <FormField class="h-full" description="N" :error="form.errors.notes">

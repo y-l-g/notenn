@@ -4,14 +4,13 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Laravel\Pulse\Support\PulseMigration;
 
-return new class extends PulseMigration
-{
+return new class extends PulseMigration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        if (! $this->shouldRun()) {
+        if (!$this->shouldRun()) {
             return;
         }
 
@@ -27,9 +26,9 @@ return new class extends PulseMigration
             };
             $table->mediumText('value');
 
-            $table->index('timestamp'); // For trimming...
-            $table->index('type'); // For fast lookups and purging...
-            $table->unique(['type', 'key_hash']); // For data integrity and upserts...
+            $table->index('timestamp');
+            $table->index('type');
+            $table->unique(['type', 'key_hash']);
         });
 
         Schema::create('pulse_entries', function (Blueprint $table) {

@@ -61,7 +61,7 @@ const form = useForm<InertiaForm<any>>({
     composer_id: props.arrangement.tune.composer?.id ?? null,
     origin_id: props.arrangement.tune.origin?.id ?? null,
     meter_id: props.arrangement.meter?.id ?? null,
-    tempo: props.arrangement.tempo ?? '',
+    tempo: props.arrangement.tempo ?? '120',
     parts: props.arrangement.parts ?? '',
     transcription: props.arrangement.transcription ?? '',
     key: props.arrangement.key ?? '',
