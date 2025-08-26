@@ -20,7 +20,7 @@ withDefaults(defineProps<Props>(), {
     <AppShell variant="sidebar">
         <AppSidebar />
         <AppContent variant="sidebar"
-            class="md:peer-data-[variant=inset]:shadow-none md:peer-data-[variant=inset]:border overflow-x-hidden">
+            class="md:peer-data-[variant=inset]:shadow-none md:peer-data-[variant=inset]:border ">
             <AppSidebarHeader :breadcrumbs="breadcrumbs" />
             <div :class="['max-w-[100vw], min-w-0  grid grid-cols-1 h-full', {
                 'xl:grid-cols-[1fr_370px] ': !noSidebar

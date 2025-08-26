@@ -44,29 +44,29 @@ class BlogPost extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('is_published', true)
-            ->whereNotNull('published_at')
-            ->where('published_at', '<=', now());
+        return $query->where('is_published', true);
+        // ->whereNotNull('published_at')
+        // ->where('published_at', '<=', now());
     }
 
     public function title(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->translation()?->title
+            get: fn() => $this->translation()?->title
         );
     }
 
     public function excerpt(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->translation()?->excerpt
+            get: fn() => $this->translation()?->excerpt
         );
     }
 
     public function content(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->translation()?->content
+            get: fn() => $this->translation()?->content
         );
     }
 }
