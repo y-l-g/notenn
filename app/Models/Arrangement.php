@@ -58,6 +58,7 @@ class Arrangement extends Model implements Likeable, Taggable
             'composer' => $this->tune->composer?->name,
             'origin' => $this->tune->origin,
             'meter' => $this->meter,
+            'tempo' => $this->tempo,
             'rhythm' => $this->rhythm,
             'likes_count' => $this->likes_count,
             'tune_body_lines' => $this->tune_body_lines,

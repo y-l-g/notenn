@@ -79,7 +79,7 @@ class TuneFromTheSessionTestSeeder extends Seeder
                 'meter_id' => $meterId,
                 'key' => $this->simplifyMode($entry['mode']),
                 'rhythm_id' => $rhythmId,
-                'tempo' => $entry['tempo'] ?? 120,
+                'tempo' => $entry['tempo'] ?? '1/4=120',
                 'user_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
