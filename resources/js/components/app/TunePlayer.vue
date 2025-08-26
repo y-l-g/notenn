@@ -3,6 +3,7 @@ import { usePlayerStore } from '@/Stores/player';
 import { Pause, Play } from 'lucide-vue-next';
 import Button from '@/components/ui/button/Button.vue';
 import { TuneObject } from 'abcjs';
+import { onUnmounted } from 'vue';
 
 const props = defineProps<{
     tuneObj: TuneObject;
@@ -23,15 +24,15 @@ const handlePlay = () => {
     emit('play');
 };
 
+onUnmounted(() => {
+    playerStore.closeSynth();
+});
+
 </script>
 
 <template>
-    <Button
-        variant="outline"
-        @click="handlePlay"
-        size="icon"
-        class="rounded-full self-center cursor-pointer text-muted-foreground"
-    >
+    <Button variant="outline" @click="handlePlay" size="icon"
+        class="rounded-full self-center cursor-pointer text-muted-foreground">
         <Pause v-if="playerStore.isPlaying && isCurrent" />
         <Play v-else />
     </Button>
