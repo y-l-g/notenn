@@ -210,10 +210,7 @@ export interface PostFromMeilisearch {
     slug: string;
     title: string;
     content: string;
-    excerpt: string | null;
     published_at: string;
-    meta_title: string | null;
-    meta_description: string | null;
 }
 
 export interface BlogPost {
@@ -221,8 +218,5 @@ export interface BlogPost {
     slug: string;
     title: string;
     content: string;
-    excerpt: string | null;
     published_at: string;
-    meta_title: string | null;
-    meta_description: string | null;
 }

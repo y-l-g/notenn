@@ -30,7 +30,7 @@ class BlogPostSeeder extends Seeder
                 $post->translations()->create([
                     'locale' => $locale,
                     'title' => $faker->sentence(6),
-                    'excerpt' => $faker->paragraph(2),
+                    // 'excerpt' => $faker->paragraph(2),
                     'content' => implode("\n\n", $faker->paragraphs(5)),
                 ]);
             }

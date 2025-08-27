@@ -11,7 +11,7 @@ class BlogPostTranslation extends Model
         'blog_post_id',
         'locale',
         'title',
-        'excerpt',
+        // 'excerpt',
         'content',
         'meta_title',
         'meta_description',

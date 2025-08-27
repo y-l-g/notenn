@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId('blog_post_id')->constrained()->cascadeOnDelete();
             $table->string('locale', 2);
             $table->string('title');
-            $table->text('excerpt')->nullable();
+            // $table->text('excerpt')->nullable();
             $table->longText('content');
             $table->timestamps();
             $table->unique(['blog_post_id', 'locale']);

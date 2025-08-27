@@ -56,12 +56,12 @@ class BlogPost extends Model
         );
     }
 
-    public function excerpt(): Attribute
-    {
-        return Attribute::make(
-            get: fn() => $this->translation()?->excerpt
-        );
-    }
+    // public function excerpt(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn() => $this->translation()?->excerpt
+    //     );
+    // }
 
     public function content(): Attribute
     {

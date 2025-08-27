@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Pagination from '@/components/app/Pagination.vue'
-import { BreadcrumbItem, PaginatedResponse, PostFromMeilisearch } from '@/types'
+import { BlogPost, BreadcrumbItem, PaginatedResponse } from '@/types'
 import { Head, Link, router } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
 import { useI18n } from 'vue-i18n';
@@ -12,7 +12,7 @@ import Description from '@/components/app/Description.vue';
 const { t } = useI18n();
 
 const props = defineProps<{
-    posts: PaginatedResponse<PostFromMeilisearch>
+    posts: PaginatedResponse<BlogPost>
     search?: string;
 }>()
 
@@ -36,6 +36,15 @@ const onPageChange = (page: number) => {
         },
     );
 };
+
+const getExcerpt = (content: string, length: number = 150) => {
+    if (!content) return '';
+    const strippedContent = content.replace(/(<([^>]+)>)/gi, "");
+    if (strippedContent.length <= length) {
+        return strippedContent;
+    }
+    return strippedContent.substring(0, length) + '...';
+};
 </script>
 <template>
 
@@ -50,7 +59,7 @@ const onPageChange = (page: number) => {
                     </Link>
                 </div>
                 <Description>
-                    <p class="mb-2">{{ post.excerpt }}</p>
+                    <p class="mb-2">{{ getExcerpt(post.content) }}</p>
                     <Link :href="route('blog.show', post.slug)" class="flex gap-2 items-center" prefetch>
                     <span>{{ t('Lire la suite') }}</span>
                     </Link>

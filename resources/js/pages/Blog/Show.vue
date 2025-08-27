@@ -45,9 +45,6 @@ const breadcrumbs: BreadcrumbItem[] = [
             <Description>
                 {{ useRelativeTime().relativeTime(post.published_at) }}
             </Description>
-            <!-- <p class="my-4 font-bold" v-if="post.excerpt">
-                {{ post.excerpt }}
-            </p> -->
 
             <div class="content markdown-body" v-html="marked.parse(post.content)" />
             <Link :href="route('blog.index')" class="flex gap-2 items-center" prefetch>
