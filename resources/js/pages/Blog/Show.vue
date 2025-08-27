@@ -42,7 +42,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <Heading>
                 {{ post.title }}
             </Heading>
-            <Description>
+            <Description class="mb-5">
                 {{ useRelativeTime().relativeTime(post.published_at) }}
             </Description>
 
