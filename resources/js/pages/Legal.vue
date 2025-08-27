@@ -94,7 +94,7 @@ const breadcrumbs: BreadcrumbItem[] = [
         <p><a href="https://github.com/adactio/TheSession-data">{{ t('Link of the original database') }}</a></p>
         <p><a href="https://github.com/y-l-g/notenn-data">{{ t('Link of the database used on this site') }}</a></p>
 
-        <p><em>{{ t('Last updated:') }} {{ (new Date(Date.UTC(2025, 8, 25))).toLocaleDateString(useI18n().locale.value)
+        <p><em>{{ t('Last updated:') }} {{ (new Date(2025, 7, 25)).toLocaleDateString(useI18n().locale.value)
         }}</em></p>
     </AppLayout>
 </template>
