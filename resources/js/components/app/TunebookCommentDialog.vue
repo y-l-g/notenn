@@ -42,7 +42,7 @@ const onSubmit = () => {
                 </div>
                 <Textarea v-model="form.content" :placeholder="t('Write your comment or suggestion here...')" />
                 <InputError :message="form.errors.content" />
-                <Button @click="onSubmit">{{ t('Submit') }}</Button>
+                <Button @click="onSubmit" :disabled="form.processing">{{ t('Submit') }}</Button>
             </div>
         </DialogContent>
     </Dialog>

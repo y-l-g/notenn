@@ -29,11 +29,7 @@ const onSubmit = () => {
 <template>
     <Dialog v-model:open="open">
         <DialogTrigger as-child>
-            <Button
-                variant="ghost"
-                size="sm"
-                class="p-6 cursor-pointer"
-            >
+            <Button variant="ghost" size="sm" class="p-6 cursor-pointer">
                 <Plus /><span class="text-wrap">
                     {{ t('Post a Comment or Suggestion') }}
                 </span>
@@ -46,43 +42,23 @@ const onSubmit = () => {
             <div class="space-y-4">
                 <div class="flex items-center gap-2">
                     <Label for="is_suggestion">{{ t('Is this a modification suggestion?') }}</Label>
-                    <input
-                        id="is_suggestion"
-                        v-model="form.is_suggestion"
-                        type="checkbox"
-                    />
+                    <input id="is_suggestion" v-model="form.is_suggestion" type="checkbox" />
                 </div>
-                <Accordion
-                    type="multiple"
-                    class="w-full"
-                    :unmountOnHide="false"
-                    :modelValue="form.is_suggestion ? ['info'] : ['']"
-                >
+                <Accordion type="multiple" class="w-full" :unmountOnHide="false"
+                    :modelValue="form.is_suggestion ? ['info'] : ['']">
                     <AccordionItem value="info">
                         <AccordionContent>
-                            <div
-                                v-if="form.is_suggestion"
-                                class="space-y-2"
-                            >
+                            <div v-if="form.is_suggestion" class="space-y-2">
                                 <Label>{{ t('What are you suggesting to modify?') }}</Label>
-                                <RadioGroup
-                                    v-model="form.suggestion_type"
-                                    class="space-y-2"
-                                >
+                                <RadioGroup v-model="form.suggestion_type" class="space-y-2">
                                     <div class="flex items-center gap-2">
-                                        <RadioGroupItem
-                                            value="tune"
-                                            id="tune"
-                                        />
+                                        <RadioGroupItem value="tune" id="tune" />
                                         <Label for="title">{{ t('Title, Origin, Composer') }}</Label>
                                     </div>
                                     <div class="flex items-center gap-2">
-                                        <RadioGroupItem
-                                            value="arrangement"
-                                            id="arrangement"
-                                        />
+                                        <RadioGroupItem value="arrangement" id="arrangement" />
                                         <Label for="arrangement">{{ t('Other (rhythm, meter, notes, lyrics...)')
-                                            }}</Label>
+                                        }}</Label>
                                     </div>
                                 </RadioGroup>
                             </div>
@@ -90,12 +66,9 @@ const onSubmit = () => {
                     </AccordionItem>
                 </Accordion>
 
-                <Textarea
-                    v-model="form.content"
-                    :placeholder="t('Write your comment or suggestion here...')"
-                />
+                <Textarea v-model="form.content" :placeholder="t('Write your comment or suggestion here...')" />
                 <InputError :message="form.errors.content" />
-                <Button @click="onSubmit">{{ t('Submit') }}</Button>
+                <Button @click="onSubmit" :disabled="form.processing">{{ t('Submit') }}</Button>
             </div>
         </DialogContent>
     </Dialog>

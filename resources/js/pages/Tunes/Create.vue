@@ -94,7 +94,8 @@ watch(selectedOrigin, (newValue) => {
                 :placeholder="t('Origin') + ' ' + t('(optional)')" :width="inputWidth" />
         </FormField>
         <div class="mt-4 flex">
-            <Button type="button" class="px-6" variant="outline" @click="submit(form)">
+            <Button type="button" class="px-6 cursor-pointer" variant="outline" @click="submit(form)"
+                :disabled="form.processing">
                 {{ t('Create Tune') }}
             </Button>
         </div>
