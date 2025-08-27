@@ -45,9 +45,9 @@ const breadcrumbs: BreadcrumbItem[] = [
             <Description>
                 {{ useRelativeTime().relativeTime(post.published_at) }}
             </Description>
-            <p class="my-4 font-bold" v-if="post.excerpt">
+            <!-- <p class="my-4 font-bold" v-if="post.excerpt">
                 {{ post.excerpt }}
-            </p>
+            </p> -->
 
             <div class="content markdown-body" v-html="marked.parse(post.content)" />
             <Link :href="route('blog.index')" class="flex gap-2 items-center" prefetch>
@@ -59,7 +59,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 <style scoped>
 .blog-post :deep(.markdown-body) {
-    /* Variables de base */
     --heading-color: var(--foreground);
     --text-color: var(--foreground);
     --code-bg: var(--muted);
@@ -68,11 +67,9 @@ const breadcrumbs: BreadcrumbItem[] = [
     --quote-border: var(--border);
     --quote-text: var(--muted-foreground);
 
-    /* Structure */
     line-height: 1.6;
     color: var(--text-color);
 
-    /* Titres */
     h1,
     h2,
     h3,
@@ -96,7 +93,6 @@ const breadcrumbs: BreadcrumbItem[] = [
         font-size: 1.125rem;
     }
 
-    /* Texte */
     p {
         margin: 0 0 1rem;
     }
@@ -115,7 +111,6 @@ const breadcrumbs: BreadcrumbItem[] = [
         margin: 1.5rem 0;
     }
 
-    /* Listes */
     ul,
     ol {
         margin: 0 0 1rem 1.25rem;
@@ -127,7 +122,6 @@ const breadcrumbs: BreadcrumbItem[] = [
         list-style-type: disc
     }
 
-    /* Code */
     pre,
     code {
         font-family: monospace;
@@ -145,7 +139,6 @@ const breadcrumbs: BreadcrumbItem[] = [
         padding: 0.2rem 0.3rem;
     }
 
-    /* Citations */
     blockquote {
         border-left: 3px solid var(--quote-border);
         padding-left: 0.75rem;
@@ -153,7 +146,6 @@ const breadcrumbs: BreadcrumbItem[] = [
         color: var(--quote-text);
     }
 
-    /* Liens */
     a {
         color: var(--link-color);
         text-decoration: none;
@@ -163,14 +155,12 @@ const breadcrumbs: BreadcrumbItem[] = [
         text-decoration: underline;
     }
 
-    /* Images */
     img {
         max-width: 100%;
         height: auto;
         margin: 0 0 1rem;
     }
 
-    /* Tableaux (optionnel - souvent inutile en markdown simple) */
     table {
         border-collapse: collapse;
         margin: 0 0 1rem;
