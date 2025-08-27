@@ -46,7 +46,6 @@ const getExcerpt = (content: string, length: number = 150) => {
     return strippedContent.substring(0, length) + '...';
 };
 
-console.log(props.posts.data[0]);
 </script>
 <template>
 
