@@ -18,7 +18,7 @@ class BlogController extends Controller
                     'id' => $post->id,
                     'slug' => $post->slug,
                     'title' => $post->title,
-                    // 'excerpt' => $post->excerpt,
+                    'content' => $post->content,
                     'published_at' => $post?->published_at,
                 ];
             });
@@ -45,7 +45,6 @@ class BlogController extends Controller
                 'slug' => $post->slug,
                 'title' => $post->title,
                 'content' => $post->content,
-                // 'excerpt' => $post->excerpt,
                 'published_at' => $post?->published_at,
             ],
         ]);
