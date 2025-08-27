@@ -64,7 +64,7 @@ watch(useColorMode().store, (newval) => {
     <div v-show="playerStore.displayPlayer"
         class="fixed bottom-20 left-[50vw] z-50 -translate-x-1/2 transform overflow-hidden rounded-lg border border-primary-muted bg-background/85 p-3 px-1 sm:px-3 pb-2 pt-8 backdrop-blur-sm transition-all duration-200 ease-in-out"
         :class="isCollapsed ? 'w-auto' : 'w-[90%] max-w-md'">
-        <Button class="absolute right-2 top-1 rounded-full p-1 size-6" variant="ghost"
+        <Button class="absolute right-2 top-1 rounded-full p-1 size-6 cursor-pointer" variant="ghost"
             @click="isCollapsed = !isCollapsed">
             <div class="relative h-4 w-4">
                 <ChevronDown class="absolute inset-0 h-4 w-4 transition-all duration-200 ease-in-out"
@@ -73,7 +73,7 @@ watch(useColorMode().store, (newval) => {
                     :class="isCollapsed ? 'rotate-0 opacity-100' : '-rotate-90 opacity-0'" />
             </div>
         </Button>
-        <Button class="absolute right-6 top-1 rounded-full p-1 size-6 mr-2" variant="ghost"
+        <Button class="absolute right-6 top-1 rounded-full p-1 size-6 mr-2 cursor-pointer" variant="ghost"
             @click="playerStore.closeSynth">
             <div class="relative h-4 w-4">
                 <X class="absolute inset-0 h-4 w-4 transition-all duration-200 ease-in-out" />
@@ -85,11 +85,13 @@ watch(useColorMode().store, (newval) => {
                 v-model="playerStore.percentArray" class="w-full" />
             <div class="flex items-center gap-1 sm:gap-2 justify-between">
                 <div class="flex-col gap-2 sm:flex-row ">
-                    <Button variant="ghost" class="size-6 sm:size-8 rounded-full" @click="playerStore.toggleLoop()">
+                    <Button variant="ghost" class="size-6 sm:size-8 rounded-full cursor-pointer"
+                        @click="playerStore.toggleLoop()">
                         <Repeat v-if="playerStore.isLooping" />
                         <Forward v-else />
                     </Button>
-                    <Button variant="ghost" class="size-6 sm:size-8 rounded-full" @click="playerStore.play()">
+                    <Button variant="ghost" class="size-6 sm:size-8 rounded-full cursor-pointer"
+                        @click="playerStore.play()">
                         <Pause v-if="playerStore.isPlaying" />
                         <Play v-else />
                     </Button>
@@ -101,11 +103,13 @@ watch(useColorMode().store, (newval) => {
                 </div>
                 <div class="flex items-center gap-1">
                     <div class="flex flex-col sm:flex-row items-center gap-1">
-                        <Button variant="ghost" class="size-6 rounded-full" @click="warp = Math.max(0.4, warp - 0.1)">
+                        <Button variant="ghost" class="size-6 rounded-full cursor-pointer"
+                            @click="warp = Math.max(0.4, warp - 0.1)">
                             <Minus class="h-3 w-3" />
                         </Button>
                         <span class="w-6 text-center text-xs">x{{ warp.toFixed(1) }}</span>
-                        <Button variant="ghost" class="size-6 rounded-full" @click="warp = Math.min(2, warp + 0.1)">
+                        <Button variant="ghost" class="size-6 rounded-full cursor-pointer"
+                            @click="warp = Math.min(2, warp + 0.1)">
                             <Plus class="h-3 w-3" />
                         </Button>
                     </div>
@@ -145,7 +149,7 @@ watch(useColorMode().store, (newval) => {
                 <div @click="playerStore.toggleVoicesOff()"
                     class="cursor-default flex items-center text-xs text-primary-muted border rounded p-0.5">
                     <span v-if="!playerStore.voicesOff">{{ t('Mute Voices') }}</span><span v-else>{{ t('Unmute Voices')
-                    }}</span>
+                        }}</span>
                 </div>
                 <div @click="playerStore.toggleChordsOff()"
                     class="cursor-default flex items-center text-xs text-primary-muted border rounded p-0.5">
@@ -155,7 +159,7 @@ watch(useColorMode().store, (newval) => {
                 </div>
 
             </div>
-            <Button v-if="user?.is_pro" class="absolute right-0 bottom-1 rounded-full size-3"
+            <Button v-if="user?.is_pro" class="absolute right-0 bottom-1 rounded-full size-3 cursor-pointer"
                 @click="isExpanded = !isExpanded" variant="ghost">
                 <Plus v-if="!isExpanded" class=" size-3" />
                 <Minus v-else class=" size-3" />
@@ -163,11 +167,11 @@ watch(useColorMode().store, (newval) => {
         </div>
 
         <div v-else class="flex gap-2">
-            <Button variant="outline" size="icon" @click="playerStore.toggleLoop()">
+            <Button variant="outline" size="icon" @click="playerStore.toggleLoop()" class="cursor-pointer">
                 <Repeat v-if="playerStore.isLooping" class="h-4 w-4" />
                 <Forward v-else class="h-4 w-4" />
             </Button>
-            <Button variant="outline" size="icon" @click="playerStore.play()">
+            <Button variant="outline" size="icon" @click="playerStore.play()" class="cursor-pointer">
                 <Pause v-if="playerStore.isPlaying" class="h-4 w-4" />
                 <Play v-else class="h-4 w-4" />
             </Button>

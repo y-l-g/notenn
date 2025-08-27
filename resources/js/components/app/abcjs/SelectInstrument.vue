@@ -32,7 +32,7 @@ const playerStore = usePlayerStore();
     }">
         <SelectTrigger class="">
 
-            <Button variant="ghost" class="rounded-full">
+            <Button variant="ghost" class="rounded-full cursor-pointer">
                 <Piano />
             </Button>
 

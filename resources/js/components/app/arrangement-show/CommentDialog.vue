@@ -58,7 +58,7 @@ const onSubmit = () => {
                                     <div class="flex items-center gap-2">
                                         <RadioGroupItem value="arrangement" id="arrangement" />
                                         <Label for="arrangement">{{ t('Other (rhythm, meter, notes, lyrics...)')
-                                        }}</Label>
+                                            }}</Label>
                                     </div>
                                 </RadioGroup>
                             </div>
@@ -68,7 +68,7 @@ const onSubmit = () => {
 
                 <Textarea v-model="form.content" :placeholder="t('Write your comment or suggestion here...')" />
                 <InputError :message="form.errors.content" />
-                <Button @click="onSubmit" :disabled="form.processing">{{ t('Submit') }}</Button>
+                <Button @click="onSubmit" :disabled="form.processing" class="cursor-pointer">{{ t('Submit') }}</Button>
             </div>
         </DialogContent>
     </Dialog>

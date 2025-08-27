@@ -73,7 +73,7 @@ const handleInputBlur = () => {
                     if (!val) emit('update:selectedValue', undefined);
                 }" @click="isOpen = focused ?? true" />
 
-            <Button variant="ghost" v-if="inputValue" @click="handleClear" class="size-5">
+            <Button variant="ghost" v-if="inputValue" @click="handleClear" class="size-5 cursor-pointer">
                 <X class="text-muted-foreground" />
             </Button>
         </ComboboxAnchor>

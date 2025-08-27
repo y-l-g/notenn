@@ -24,7 +24,7 @@ class TunebookController extends Controller implements HasMiddleware
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255|unique:name',
+            'name' => 'required|string|max:255|unique:tunebooks,name',
         ]);
 
         Tunebook::create([

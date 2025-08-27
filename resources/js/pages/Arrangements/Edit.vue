@@ -171,7 +171,8 @@ const textToTranslate = "Title, origin and composer can't be modified because th
         </div>
 
         <div class="mt-4 flex gap-5 items-center">
-            <Button type="button" class="px-6" variant="outline" @click="submit(form)" :disabled="form.processing">
+            <Button type="button" class="px-6 cursor-pointer" variant="outline" @click="submit(form)"
+                :disabled="form.processing">
                 {{ t('Update Arrangement') }}
             </Button>
             <DeleteArrangementModal :arrangement="arrangement" />

@@ -43,30 +43,30 @@ const mode = useColorMode();
             <Breadcrumbs v-if="breadcrumbs.length > 0 && width > 350" :breadcrumbs="breadcrumbs" />
         </div>
         <div class="flex items-center gap-1">
-            <Button v-if="mode === 'light'" @click="mode = 'dark'" variant="ghost">
+            <Button v-if="mode === 'light'" @click="mode = 'dark'" variant="ghost" class="cursor-pointer">
                 <MoonStar />
             </Button>
-            <Button v-if="mode == 'dark'" @click="mode = 'light'" variant="ghost">
+            <Button v-if="mode == 'dark'" @click="mode = 'light'" variant="ghost" class="cursor-pointer">
                 <Sun />
             </Button>
             <DropdownMenu>
                 <DropdownMenuTrigger>
-                    <Button size="icon" variant="ghost">
+                    <Button size="icon" variant="ghost" class="cursor-pointer">
                         <Languages />
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                     <DropdownMenuItem>
-                        <Button variant="ghost" @click="changeLocale('fr')"> Français </Button>
+                        <Button variant="ghost" @click="changeLocale('fr')" class="cursor-pointer"> Français </Button>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                        <Button variant="ghost" @click="changeLocale('en')"> English </Button>
+                        <Button variant="ghost" @click="changeLocale('en')" class="cursor-pointer"> English </Button>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                        <Button variant="ghost" @click="changeLocale('es')"> Español </Button>
+                        <Button variant="ghost" @click="changeLocale('es')" class="cursor-pointer"> Español </Button>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                        <Button variant="ghost" @click="changeLocale('br')"> Brezhoneg </Button>
+                        <Button variant="ghost" @click="changeLocale('br')" class="cursor-pointer"> Brezhoneg </Button>
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>

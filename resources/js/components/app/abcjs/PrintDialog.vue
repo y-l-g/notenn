@@ -112,7 +112,7 @@ const printScore = () => {
             </div>
 
             <DialogFooter>
-                <Button variant="outline" @click="emit('update:modelValue', false)">
+                <Button class="cursor-pointer" variant="outline" @click="emit('update:modelValue', false)">
                     {{ t('Cancel') }}
                 </Button>
                 <Button @click="printScore">{{ t('Print') }}</Button>

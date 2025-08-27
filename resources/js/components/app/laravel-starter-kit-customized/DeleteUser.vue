@@ -57,7 +57,7 @@ const closeModal = () => {
             </div>
             <Dialog>
                 <DialogTrigger as-child>
-                    <Button variant="destructive">{{ t('Delete account') }}</Button>
+                    <Button variant="destructive" class="cursor-pointer">{{ t('Delete account') }}</Button>
                 </DialogTrigger>
                 <DialogContent>
                     <form
@@ -91,6 +91,7 @@ const closeModal = () => {
                         <DialogFooter class="gap-2">
                             <DialogClose as-child>
                                 <Button
+                                class="cursor-pointer"
                                     variant="secondary"
                                     @click="closeModal"
                                 > {{ t('Cancel') }} </Button>

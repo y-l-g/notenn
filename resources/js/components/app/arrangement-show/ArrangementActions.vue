@@ -31,7 +31,7 @@ const pageData = usePage();
             <TooltipTrigger>
                 <Link prefetch
                     :href="route('arrangements.edit', { arrangement: arrangement.id, tune: arrangement.tune.id })">
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" class="cursor-pointer">
                     <Pen />
                 </Button>
                 </Link>
@@ -44,7 +44,7 @@ const pageData = usePage();
             <TooltipTrigger>
                 <Link :href="route('arrangements.fork', { arrangement: arrangement.id, tune: arrangement.tune.id })"
                     method="post">
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" class="cursor-pointer">
                     <GitFork />
                 </Button>
                 </Link>
@@ -56,7 +56,7 @@ const pageData = usePage();
         <Tooltip v-if="user_arrangement_for_this_tune && arrangement.user?.id != pageData.props.auth.user?.id">
             <TooltipTrigger>
                 <Link prefetch :href="route('arrangements.show', { arrangement: user_arrangement_for_this_tune.id })">
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" class="cursor-pointer">
                     <CircleUser />
                 </Button>
                 </Link>
@@ -78,7 +78,7 @@ const pageData = usePage();
         <Tooltip>
             <TooltipTrigger>
                 <div @click="isPrintDialogOpen = true" v-if="pageData.props.auth.user?.is_pro">
-                    <Button variant="ghost" size="sm">
+                    <Button variant="ghost" size="sm" class="cursor-pointer">
                         <Printer />
                     </Button>
                 </div>

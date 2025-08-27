@@ -26,25 +26,16 @@ const submit = () => {
 <template>
     <Dialog v-model:open="isOpen">
         <DialogTrigger asChild>
-            <Button variant="outline">{{ t('Add Tunebook') }}</Button>
+            <Button variant="outline" class="cursor-pointer">{{ t('Add Tunebook') }}</Button>
         </DialogTrigger>
         <DialogContent>
             <DialogHeader>
                 <DialogTitle>{{ t('Add a Tunebook') }}</DialogTitle>
             </DialogHeader>
-            <form
-                @submit.prevent="submit"
-                class="space-y-4"
-            >
-                <Input
-                    v-model="form.name"
-                    :placeholder="t('Tunebook Name')"
-                />
+            <form @submit.prevent="submit" class="space-y-4">
+                <Input v-model="form.name" :placeholder="t('Tunebook Name')" />
                 <InputError :message="form.errors.name" />
-                <Button
-                    type="submit"
-                    :disabled="form.processing"
-                >{{ t('Save') }}</Button>
+                <Button type="submit" :disabled="form.processing" class="cursor-pointer">{{ t('Save') }}</Button>
             </form>
         </DialogContent>
     </Dialog>

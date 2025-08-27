@@ -26,7 +26,7 @@ const submit = () => {
 <template>
     <Dialog v-model:open="isOpen">
         <DialogTrigger asChild>
-            <Button variant="ghost" size="icon" class="text-muted-foreground ml-2">
+            <Button variant="ghost" size="icon" class="text-muted-foreground ml-2 cursor-pointer">
                 <Plus />
             </Button>
         </DialogTrigger>
@@ -36,7 +36,7 @@ const submit = () => {
             </DialogHeader>
             <form @submit.prevent="submit" class="space-y-4">
                 <Input v-model="form.name" :placeholder="t('Composer Name')" />
-                <Button type="submit" :disabled="form.processing">{{ t('Save') }}</Button>
+                <Button class="cursor-pointer" type="submit" :disabled="form.processing">{{ t('Save') }}</Button>
             </form>
         </DialogContent>
     </Dialog>

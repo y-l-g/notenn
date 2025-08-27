@@ -61,7 +61,7 @@ watch(
 <template>
     <Dialog v-model:open="isOpen">
         <DialogTrigger asChild>
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" class="cursor-pointer">
                 <Plus />
             </Button>
         </DialogTrigger>
@@ -77,7 +77,7 @@ watch(
                     <CreateTunebookModal />
                 </div>
                 <InputError :message="form.errors.tunebook_id" />
-                <Button type="submit" :disabled="form.processing">{{ t('Save') }}</Button>
+                <Button class="cursor-pointer" type="submit" :disabled="form.processing">{{ t('Save') }}</Button>
             </form>
         </DialogContent>
     </Dialog>
